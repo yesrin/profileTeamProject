@@ -129,6 +129,13 @@
 
     /* 아래는 방명록 CSS 입니다. */
 
+    .comment_card_bottom {
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .card-container {
       display: flex;
       flex-wrap: wrap;
@@ -147,7 +154,7 @@
     }
 
     .comment_btn {
-      width: 100%;
+      width: 95%;
     }
 
     .table-body {
@@ -159,6 +166,34 @@
 
     .table_name {
       width: 120px;
+      text-align: center;
+    }
+
+    .table_comment {
+      text-align: center;
+    }
+
+    #name1, #name2, #name3, #name4 {
+      max-width: 100px;
+    }
+
+    #comment1, #comment2, #comment3, #comment4 {
+      min-width: 100px;
+    }
+
+    .write_name, .write_comment {
+      width: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .write_box {
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
   </style>
   <script>
@@ -271,10 +306,9 @@
     // 아래는 방명록 스크립트 입니다 //
 
     $(document).ready(function () {
-      show_writing('table_id1');
-      show_writing('table_id2');
-      show_writing('table_id3');
-      show_writing('table_id4');
+      ['table_id1', 'table_id2', 'table_id3', 'table_id4'].forEach(function (id) {
+        show_writing(id);
+      });
     });
 
     function show_writing(table_id) {
@@ -344,47 +378,48 @@
         </div>
       </div>
     </div>
-      <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
-        <div class="uk-card-header">
-          <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              <img class="uk-border-circle" width="40" height="40"
-                src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-                alt="Avatar">
-            </div>
-            <div class="uk-width-expand">
-              <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
-              <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
-              </p>
-            </div>
+    <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
+      <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <img class="uk-border-circle" width="100" height="100"
+              src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
+              alt="Avatar">
+          </div>
+          <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
+            <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 많은 힘이 됩니다.
+            </p>
           </div>
         </div>
-        <div class="table-body">
-          <table class="uk-table uk-table-divider">
-            <thead>
-              <tr>
-                <th class="table_name">이름</th>
-                <th class="table_comment">코멘트 내용</th>
-              </tr>
-            </thead>
-            <tbody id="table_id1-comment-load">
-            </tbody>
-          </table>
-        </div>
-        <hr class="card-divider">
-        <div class="input-group mb-3">
-          <span class="input-group-text">이름</span>
-          <input id="name1" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">내용</span>
-          <input id="comment1" type="text" class="form-control" />
-        </div>
-        <button onclick="save_writing('name1', 'comment1', 'table_id1')" type="button"
-          class="btn btn-warning comment_btn">
-          작성
+      </div>
+      <div class="table-body">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th class="table_name">이름</th>
+              <th class="table_comment">코멘트 내용</th>
+            </tr>
+          </thead>
+          <tbody id="table_id1-comment-load">
+          </tbody>
+        </table>
+      </div>
+      <hr class="card-divider">
+
+      <div class="input-group mb-3 write_box">
+        <span class="input-group-text write_name">이름</span>
+        <input id="name1" type="text" class="form-control" />
+        <span class="input-group-text write_comment">내용</span>
+        <input id="comment1" type="text" class="form-control" />
+      </div>
+      <div class="comment_card_bottom">
+        <button onclick="save_writing('name4', 'comment4', 'table_id4')" type="button"
+        class="btn btn-warning comment_btn">
+        작성
         </button>
       </div>
+    </div>
   </div>
   <div class="container">
     <div class="card2">
@@ -408,13 +443,13 @@
       <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
-            <img class="uk-border-circle" width="40" height="40"
+            <img class="uk-border-circle" width="100" height="100"
               src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
               alt="Avatar">
           </div>
           <div class="uk-width-expand">
             <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
-            <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
+            <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 많은 힘이 됩니다.
             </p>
           </div>
         </div>
@@ -423,7 +458,7 @@
         <table class="uk-table uk-table-divider">
           <thead>
             <tr>
-              <th class="table_name">이름</th>
+              <th class="table_name ">이름</th>
               <th class="table_comment">코멘트 내용</th>
             </tr>
           </thead>
@@ -432,18 +467,18 @@
         </table>
       </div>
       <hr class="card-divider">
-      <div class="input-group mb-3">
-        <span class="input-group-text">이름</span>
+      <div class="input-group mb-3 write_box">
+        <span class="input-group-text write_name">이름</span>
         <input id="name2" type="text" class="form-control" />
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text">내용</span>
+        <span class="input-group-text write_comment">내용</span>
         <input id="comment2" type="text" class="form-control" />
       </div>
-      <button onclick="save_writing('name2', 'comment2', 'table_id2')" type="button"
+      <div class="comment_card_bottom">
+        <button onclick="save_writing('name4', 'comment4', 'table_id4')" type="button"
         class="btn btn-warning comment_btn">
         작성
-      </button>
+        </button>
+      </div>
     </div>
   </div>
   <div class="container">
@@ -465,46 +500,46 @@
       </div>
     </div>
     <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
-        <div class="uk-card-header">
-          <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              <img class="uk-border-circle" width="40" height="40"
-                src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-                alt="Avatar">
-            </div>
-            <div class="uk-width-expand">
-              <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
-              <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
-              </p>
-            </div>
+      <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <img class="uk-border-circle" width="100" height="100"
+              src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
+              alt="Avatar">
+          </div>
+          <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
+            <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 많은 힘이 됩니다.
+            </p>
           </div>
         </div>
-        <div class="table-body">
-          <table class="uk-table uk-table-divider">
-            <thead>
-              <tr>
-                <th class="table_name">이름</th>
-                <th class="table_comment">코멘트 내용</th>
-              </tr>
-            </thead>
-            <tbody id="table_id3-comment-load">
-            </tbody>
-          </table>
-        </div>
-        <hr class="card-divider">
-        <div class="input-group mb-3">
-          <span class="input-group-text">이름</span>
-          <input id="name3" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">내용</span>
-          <input id="comment3" type="text" class="form-control" />
-        </div>
-        <button onclick="save_writing('name3', 'comment3', 'table_id3')" type="button"
-          class="btn btn-warning comment_btn">
-          작성
+      </div>
+      <div class="table-body">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th class="table_name">이름</th>
+              <th class="table_comment">코멘트 내용</th>
+            </tr>
+          </thead>
+          <tbody id="table_id3-comment-load">
+          </tbody>
+        </table>
+      </div>
+      <hr class="card-divider">
+      <div class="input-group mb-3 write_box">
+        <span class="input-group-text write_name">이름</span>
+        <input id="name3" type="text" class="form-control" />
+        <span class="input-group-text write_comment">내용</span>
+        <input id="comment3" type="text" class="form-control" />
+      </div>
+      <div class="comment_card_bottom">
+        <button onclick="save_writing('name4', 'comment4', 'table_id4')" type="button"
+        class="btn btn-warning comment_btn">
+        작성
         </button>
       </div>
+    </div>
   </div>
   <div class="container">
     <div class="card2">
@@ -528,13 +563,13 @@
       <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
-            <img class="uk-border-circle" width="40" height="40"
+            <img class="uk-border-circle" width="100" height="100"
               src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
               alt="Avatar">
           </div>
           <div class="uk-width-expand">
             <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
-            <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
+            <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 많은 힘이 됩니다.
             </p>
           </div>
         </div>
@@ -552,18 +587,18 @@
         </table>
       </div>
       <hr class="card-divider">
-      <div class="input-group mb-3">
-        <span class="input-group-text">이름</span>
+      <div class="input-group mb-3 write_box">
+        <span class="input-group-text write_name">이름</span>
         <input id="name4" type="text" class="form-control" />
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text">내용</span>
+        <span class="input-group-text write_comment">내용</span>
         <input id="comment4" type="text" class="form-control" />
       </div>
-      <button onclick="save_writing('name4', 'comment4', 'table_id4')" type="button"
+      <div class="comment_card_bottom">
+        <button onclick="save_writing('name4', 'comment4', 'table_id4')" type="button"
         class="btn btn-warning comment_btn">
         작성
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </body>
