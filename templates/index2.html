@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+  <html>
+
+  <head>
+    <title>TEAM BARCODE</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+        <link
+        href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+        rel="stylesheet"
+      />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Jua&display=swap');
+
+    * {
+      font-family: 'East Sea Dokdo', cursive;
+      font-family: 'Jua', sans-serif
+    }
+
+    .title {
+
+      width: 1150px;
+      height: 100px;
+      margin: 20px auto 0px auto;
+      border-radius: 10px;
+
+      background-image: url('https://t1.daumcdn.net/cfile/tistory/9905E9455DE5D69813');
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .card {
+      border: 1px solid black;
+      padding: 1rem;
+      transition: all 0.3s ease 0s;
+      width: 200px;
+      height: 276px;
+      margin-left: 20px;
+      border-radius: 50px;
+
+      
+    }
+    .card2 {
+      border: 1px solid black;
+      padding: 1rem;
+      transition: all 0.3s ease 0s;
+      width: 950px;
+      
+    
+      border-radius: 50px;
+    }
+
+    /* .cardbody {
+      border: 100px solid rgb(0, 0, 0);
+      width: 1200px;
+      margin: 20px auto 20px auto;
+    } */
+
+    .comment-section {
+      width: 100%;
+      height: 100px
+    }
+
+    .mybtn>button {
+      margin-top: 0px;
+      margin-right: 10px;
+    }
+
+    textarea.form-control {
+      
+      
+      width: 125px;
+      resize: none;
+
+    }
+
+    .col-md-4>img {
+      border: 1px solid black;
+      padding: 1rem;
+      width: 250px;
+      height: 250px;
+      margin: 0px auto 0px auto;
+      border-radius: 10px;
+      background-position: center;
+      background-size: cover;
+    }
+    .guestbook{
+      background-color: greenyellow;
+      border: 1px solid black;
+      font-size: large;
+      color: firebrick;
+      border-radius: 10px;
+    }
+    .guestbook2{
+      /* background-color: greenyellow; */
+      /* border: 1px solid black; */
+      font-size: medium;
+      color: black;
+      width: auto;
+      height: 127px;
+      /* border-radius: 10px; */
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+        show_order();
+    });
+    function show_order() {
+        fetch('/member1').then((res) => res.json()).then((data) => {
+            let rows=data['result']
+            rows.forEach((a)=>{
+              let step;
+             
+              let name = a['name']
+                let mbit = a['mbti']
+                let blogUrl = a['blogUrl']
+                let intro = a['intro'] 
+                let temp_html=`
+                              <h5 class="card-title">${name}</h5>
+                              <p class="card-text">${mbit}</p>
+                              <p class="card-text">${blogUrl}</p>
+                              <p class="card-text">${intro}</p>
+                                  
+                `
+                /*여기*/$('#plz1').append(temp_html)
+              
+            })
+            
+        })
+    }
+    $(document).ready(function () {
+        show_order2();
+    });
+    function show_order2() {
+        fetch('/member2').then((res) => res.json()).then((data) => {
+            let rows=data['result']
+            rows.forEach((a)=>{
+              let step;
+             
+              let name = a['name']
+                let mbit = a['mbti']
+                let blogUrl = a['blogUrl']
+                let intro = a['intro'] 
+                let temp_html=`
+                              <h5 class="card-title">${name}</h5>
+                              <p class="card-text">${mbit}</p>
+                              <p class="card-text">${blogUrl}</p>
+                              <p class="card-text">${intro}</p>
+                                  
+                `
+                /*여기*/$('#plz2').append(temp_html)
+              
+            })
+            
+        })
+    }
+    $(document).ready(function () {
+        show_order3();
+    });
+    function show_order3() {
+        fetch('/member3').then((res) => res.json()).then((data) => {
+            let rows=data['result']
+            rows.forEach((a)=>{
+              let step;
+             
+              let name = a['name']
+                let mbit = a['mbti']
+                let blogUrl = a['blogUrl']
+                let intro = a['intro'] 
+                let temp_html=`
+                              <h5 class="card-title">${name}</h5>
+                              <p class="card-text">${mbit}</p>
+                              <p class="card-text">${blogUrl}</p>
+                              <p class="card-text">${intro}</p>
+                                  
+                `
+                /*여기*/$('#plz3').append(temp_html)
+              
+            })
+            
+        })
+    }
+    $(document).ready(function () {
+        show_order4();
+    });
+    function show_order4() {
+        fetch('/member4').then((res) => res.json()).then((data) => {
+            let rows=data['result']
+            rows.forEach((a)=>{
+              let step;
+             
+              let name = a['name']
+                let mbit = a['mbti']
+                let blogUrl = a['blogUrl']
+                let intro = a['intro'] 
+                let temp_html=`
+                              <h5 class="card-title">${name}</h5>
+                              <p class="card-text">${mbit}</p>
+                              <p class="card-text">${blogUrl}</p>
+                              <p class="card-text">${intro}</p>
+                                  
+                `
+                /*여기*/$('#plz4').append(temp_html)
+              
+            })
+            
+        })
+    }
+    $(document).ready(function () {
+        comment_order();
+    });
+
+    function comment_order(){
+      /*여기/guest*/fetch('/guest').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                rows.forEach((a)=>{
+                  let gc = a['guestcomment']
+                  let temp_html=`
+                              <p>${gc}</p>
+                                `
+                /*여기*/$('#guset_comment1').append(temp_html)
+                })
+                
+            })
+            
+    }
+    $(document).ready(function () {
+        comment_order();
+    });
+
+    function comment_order(){
+      /*여기/guest*/fetch('/guest2').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                rows.forEach((a)=>{
+                  let gc = a['guestcomment']
+                  let temp_html=`
+                              <p>${gc}</p>
+                                `
+                /*여기*/$('#guset_comment2').append(temp_html)
+                })
+                
+            })
+            
+    } $(document).ready(function () {
+        comment_order();
+    });
+
+    function comment_order(){
+      /*여기/guest*/fetch('/guest3').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                rows.forEach((a)=>{
+                  let gc = a['guestcomment']
+                  let temp_html=`
+                              <p>${gc}</p>
+                                `
+                /*여기*/$('#guset_comment3').append(temp_html)
+                })
+                
+            })
+            
+    } $(document).ready(function () {
+        comment_order();
+    });
+
+    function comment_order(){
+      /*여기/guest*/fetch('/guest4').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                rows.forEach((a)=>{
+                  let gc = a['guestcomment']
+                  let temp_html=`
+                              <p>${gc}</p>
+                                `
+                /*여기*/$('#guset_comment4').append(temp_html)
+                })
+                
+            })
+            
+    }
+    
+
+    function save_order() {
+
+        /*여기comment*/let guest_commet =$('#comment').val();
+
+        let formData = new FormData();
+       /*여기*/ formData.append("guest_give", guest_commet);
+
+       /*여기*/ fetch('/mars', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+          
+            alert(data["msg"]);
+        });
+    }
+</script>
+  </head>
+  <body>
+    <div class="title">
+      <h1>
+        내배캠 스프링 비반 구조
+      </h1>
+    </div>
+    <table class="table">
+      <tbody >
+      </tbody>
+    </table>
+    <div  class="container">
+      <div  class="card2">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div id="plz1" class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="comment-section">
+          <div class="guestbook">
+            방명록
+          </div>
+          <div id="guset_comment1" class="guestbook2">
+          <p></p>
+          </div>
+          <div class="input-group mb-3">
+            <input id="comment" type="text" class="form-control" />
+        </div>
+          <div class="mybtn">
+              <button onclick="save_order()" type="button" class="btn-dark">
+                등록
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div  class="container">
+      <div  class="card2">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div id="plz2" class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="comment-section">
+          <div class="guestbook">
+            방명록
+          </div>
+          <div id="guset_comment2" class="guestbook2">
+          <p></p>
+          </div>
+          <div class="input-group mb-3">
+            <input id="comment" type="text" class="form-control" />
+        </div>
+          <div class="mybtn">
+              <button onclick="save_order()" type="button" class="btn-dark">
+                등록
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div  class="container">
+      <div  class="card2">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div id="plz3" class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="comment-section">
+          <div class="guestbook">
+            방명록
+          </div>
+          <div id="guset_comment3" class="guestbook2">
+          <p></p>
+          </div>
+          <div class="input-group mb-3">
+            <input id="comment" type="text" class="form-control" />
+        </div>
+          <div class="mybtn">
+              <button onclick="save_order()" type="button" class="btn-dark">
+                등록
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div  class="container">
+      <div  class="card2">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div id="plz4" class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="comment-section">
+          <div class="guestbook">
+            방명록
+          </div>
+          <div id="guset_comment4" class="guestbook2">
+          <p></p>
+          </div>
+          <div class="input-group mb-3">
+            <input id="comment" type="text" class="form-control" />
+        </div>
+          <div class="mybtn">
+              <button onclick="save_order()" type="button" class="btn-dark">
+                등록
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
