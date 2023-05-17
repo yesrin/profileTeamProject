@@ -331,6 +331,12 @@
     function save_writing(name_id, comment_id, table_id) {
       let name = $("#" + name_id).val();
       let comment = $("#" + comment_id).val();
+
+      if (!name.trim() || !comment.trim()) {
+        alert('이름 또는 내용 칸에 공백이 존재합니다.');
+        return; // Exit the function early
+      }
+
       let formData = new FormData()
       formData.append("name_give", name)
       formData.append("comment_give", comment)
@@ -534,7 +540,7 @@
         <input id="comment3" type="text" class="form-control" />
       </div>
       <div class="comment_card_bottom">
-        <button onclick="save_writing('name4', 'comment4', 'table_id4')" type="button"
+        <button onclick="save_writing('name3', 'comment3', 'table_id3')" type="button"
         class="btn btn-warning comment_btn">
         작성
         </button>
