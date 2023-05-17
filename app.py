@@ -9,8 +9,7 @@ db = client.dbsparta
 
 @app.route('/')
 def home():
-    return render_template('index2.html')
-
+    return render_template('index.html')
 # 방명록저장
 @app.route("/mars", methods=["POST"])
 def mars_post():
