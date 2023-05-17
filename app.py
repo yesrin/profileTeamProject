@@ -6,7 +6,23 @@ client = MongoClient(
     "mongodb+srv://sparta:test@cluster0.y3rdt1e.mongodb.net/?retryWrites=true&w=majority"
 )
 db = client.dbsparta
-
+#팀원정보 받아오기
+@app.route("/member1", methods=["GET"])
+def member1_get():
+    users_data = list(db.member1.find({},{'_id':False}))
+    return jsonify({'result':users_data})
+@app.route("/member2", methods=["GET"])
+def member2_get():
+    users_data = list(db.member2.find({},{'_id':False}))
+    return jsonify({'result':users_data})
+@app.route("/member3", methods=["GET"])
+def member3_get():
+    users_data = list(db.member3.find({},{'_id':False}))
+    return jsonify({'result':users_data})
+@app.route("/member4", methods=["GET"])
+def member4_get():
+    users_data = list(db.member4.find({},{'_id':False}))
+    return jsonify({'result':users_data})
 # 방명록 코멘트 등록
 
 @app.route("/chat", methods=["POST"])
