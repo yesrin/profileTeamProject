@@ -31,15 +31,15 @@ def image_get1():
     return jsonify({'result':image_data})
 @app.route("/image2", methods=["GET"])
 def image_get2():
-    image_data = list(db.image.find({},{'_id':False}))
+    image_data = list(db.image2.find({},{'_id':False}))
     return jsonify({'result':image_data})
 @app.route("/image3", methods=["GET"])
 def image_get3():
-    image_data = list(db.image.find({},{'_id':False}))
+    image_data = list(db.image3.find({},{'_id':False}))
     return jsonify({'result':image_data})
 @app.route("/image4", methods=["GET"])
 def image_get4():
-    image_data = list(db.image.find({},{'_id':False}))
+    image_data = list(db.image4.find({},{'_id':False}))
     return jsonify({'result':image_data})
 
 
@@ -79,27 +79,6 @@ def home():
 @app.route('/team')
 def start():
     return render_template('index2.html')
-
-# @app.route("/mars", methods=["POST"])
-# def mars_post():
-#     name_receive = request.form['name_give']
-#     address_receive = request.form['address_give']
-#     size_receive = request.form['size_give']
-
-#     doc = {
-#         'name': name_receive,
-#         'address': address_receive,
-#         'size': size_receive
-#     }
-
-#     db.mars.insert_one(doc)
-
-#     return jsonify({'msg': '주문 완료!'})
-
-# @app.route("/mars", methods=["GET"])
-# def mars_get():
-#     mars_data = list(db.mars.find({},{'_id':False}))
-#     return jsonify({'result':mars_data})
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)

@@ -30,18 +30,21 @@
       font-family: 'East Sea Dokdo', cursive;
       font-family: 'Jua', sans-serif
     }
-
     .title {
-
+      
       width: 1150px;
       height: 100px;
       margin: 20px auto 0px auto;
       border-radius: 10px;
+      padding-top: 20px;
 
-      background-image: url('https://t1.daumcdn.net/cfile/tistory/9905E9455DE5D69813');
+      background-image: url('https://us.123rf.com/450wm/hakaba/hakaba1502/hakaba150200060/36374142-%ED%94%84%EB%A6%AC%EC%A0%A0-%ED%85%8C%EC%9D%B4%EC%85%98%EC%9D%B4%EB%82%98-%EC%98%81%ED%99%94-%ED%83%80%EC%9D%B4%ED%8B%80-%EB%B0%B0%EA%B2%BD.jpg');
       background-position: center;
       background-size: cover;
       text-align: center;
+    }
+    .title-color{
+        color: white;
     }
 
     .container {
@@ -69,12 +72,12 @@
       padding: 1rem;
       transition: all 0.3s ease 0s;
       width: 700px;
-      height: 450px;
+      height: 350px;
       border-radius: 50px;
     }
 
     .card-body {
-      border: 1px solid rgb(0, 0, 0);
+      border: 1px dashed rgb(0, 0, 0);
       width: 250px;
       height: 250px;
       margin: 0px auto 0px auto;
@@ -101,7 +104,7 @@
     }
 
     .col-md-4>img {
-      border: 1px solid black;
+      border: 1px dashed black;
       padding: 1rem;
       width: 250px;
       height: 250px;
@@ -211,7 +214,7 @@
                               <p class="card-text">${intro}</p>
                                   
                 `
-                /*여기*/$('#plz2').append(temp_html)
+              $('#plz2').append(temp_html)
 
         })
 
@@ -237,7 +240,7 @@
                               <p class="card-text">${intro}</p>
                                   
                 `
-                /*여기*/$('#plz3').append(temp_html)
+                $('#plz3').append(temp_html)
 
         })
 
@@ -263,7 +266,7 @@
                               <p class="card-text">${intro}</p>
                                   
                 `
-                /*여기*/$('#plz4').append(temp_html)
+              $('#plz4').append(temp_html)
 
         })
 
@@ -288,23 +291,13 @@
           let temp_html = `
           <img src="
           ${image}
-          " class="img-fluid rounded-start" alt="...">                `
-              $('#imageurl').append(temp_html)///////////////////////////////////
+          " class="img-fluid rounded-start" alt="...">`
+              $('#imageurl1').append(temp_html)
+            let temp_html2=`<img id="smallprofile" class="uk-border-circle" width="40" height="40"
+               src="${image}"
+              alt="Avatar">`
+           $('#smallprofile1').append(temp_html2)
 
-        })
-
-      })
-    }
-    function image_load1() {
-      fetch('/image1').then((res) => res.json()).then((data) => {
-        let rows = data['result']
-        rows.forEach((a) => {
-          let image = a['imageUrl']
-          let temp_html = `
-          <img src="
-          ${image}
-          " class="img-fluid rounded-start" alt="...">                `
-              $('#imageurl1').append(temp_html)///////////////////////////////////
 
         })
 
@@ -320,6 +313,11 @@
           ${image}
           " class="img-fluid rounded-start" alt="...">                `
               $('#imageurl2').append(temp_html)///////////////////////////////////
+              let temp_html2=`<img id="smallprofile" class="uk-border-circle" width="40" height="40"
+                src="${image}"
+                alt="Avatar">`
+           $('#smallprofile2').append(temp_html2)
+
 
         })
 
@@ -334,7 +332,11 @@
           <img src="
           ${image}
           " class="img-fluid rounded-start" alt="...">                `
-              $('#imageurl3').append(temp_html)///////////////////////////////////
+              $('#imageurl3').append(temp_html)
+              let temp_html2=`<img id="smallprofile" class="uk-border-circle" width="40" height="40"
+                src="${image}"
+                alt="Avatar">`
+           $('#smallprofile3').append(temp_html2)
 
         })
 
@@ -349,10 +351,13 @@
           <img src="
           ${image}
           " class="img-fluid rounded-start" alt="...">                `
-              $('#imageurl4').append(temp_html)///////////////////////////////////
-
+              $('#imageurl4').append(temp_html)
+            let temp_html2=`<img id="smallprofile" class="uk-border-circle" width="40" height="40"
+                src="${image}"
+                alt="Avatar">`
+           $('#smallprofile4').append(temp_html2)
         })
-
+        
       })
     }
     // 아래는 방명록 스크립트 입니다 //
@@ -405,19 +410,17 @@
 
 <body>
   <div class="title">
-    <h1>
-      내배캠 스프링 비반 구조
+    <h1 class="title-color">
+      TEAM BARCODE
     </h1>
   </div>
-  <table class="table">
-    <tbody>
-    </tbody>
+
   </table>
   <div class="container">
     <div class="card2">
       <div class="row g-0">
         <div id ='imageurl1' class="col-md-4">  
-        </div><!-- 여기다ㅏㅏㅏㅏㅏㅏㅏㅏ이놈아ㅏㅏ -->
+        </div>
          <div id="plz1" class="card-body"> 
             </div>
       </div>
@@ -425,13 +428,10 @@
     <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
         <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              /*이곳에다가 get으로 db에서 사진 받아올것*/<img class="uk-border-circle" width="40" height="40"
-                src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-                alt="Avatar">
+            <div id="smallprofile1" class="uk-width-auto">
             </div>
             <div class="uk-width-expand">
-              <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
+              <h3 class="uk-card-title uk-margin-remove-bottom">박구현님 방명록</h3>
               <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
               </p>
             </div>
@@ -468,7 +468,7 @@
     <div class="card2">
       <div class="row g-0">
         <div id ='imageurl2' class="col-md-4">  
-        </div><!-- 여기다ㅏㅏㅏㅏㅏㅏㅏㅏ이놈아ㅏㅏ -->
+        </div>
          <div id="plz2" class="card-body"> 
             </div>
       </div>
@@ -476,13 +476,10 @@
     <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
         <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              /*이곳에다가 get으로 db에서 사진 받아올것*/<img class="uk-border-circle" width="40" height="40"
-                src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-                alt="Avatar">
+            <div id="smallprofile2" class="uk-width-auto">
             </div>
             <div class="uk-width-expand">
-              <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
+              <h3 class="uk-card-title uk-margin-remove-bottom">이승현님 방명록</h3>
               <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
               </p>
             </div>
@@ -519,7 +516,7 @@
     <div class="card2">
       <div class="row g-0">
         <div id ='imageurl3' class="col-md-4">  
-        </div><!-- 여기다ㅏㅏㅏㅏㅏㅏㅏㅏ이놈아ㅏㅏ -->
+        </div>
          <div id="plz3" class="card-body"> 
             </div>
       </div>
@@ -527,13 +524,10 @@
     <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
         <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              /*이곳에다가 get으로 db에서 사진 받아올것*/<img class="uk-border-circle" width="40" height="40"
-                src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-                alt="Avatar">
+            <div id="smallprofile3" class="uk-width-auto">
             </div>
             <div class="uk-width-expand">
-              <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
+              <h3 class="uk-card-title uk-margin-remove-bottom">서예린님 방명록</h3>
               <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
               </p>
             </div>
@@ -570,7 +564,7 @@
     <div class="card2">
       <div class="row g-0">
         <div id ='imageurl4' class="col-md-4">  
-        </div><!-- 여기다ㅏㅏㅏㅏㅏㅏㅏㅏ이놈아ㅏㅏ -->
+        </div>
          <div id="plz4" class="card-body"> 
             </div>
       </div>
@@ -578,13 +572,11 @@
     <div class="uk-card uk-card-default uk-width-1-2@m comment_card">
         <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              /*이곳에다가 get으로 db에서 사진 받아올것*/<img class="uk-border-circle" width="40" height="40"
-                src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_org.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-                alt="Avatar">
+            <div id="smallprofile4" class="uk-width-auto">
+              
             </div>
             <div class="uk-width-expand">
-              <h3 class="uk-card-title uk-margin-remove-bottom">ㅁㅁㅁ님 방명록</h3>
+              <h3 class="uk-card-title uk-margin-remove-bottom">이강범님 방명록</h3>
               <p class="uk-text-meta uk-margin-remove-top">따스한 한 마디가 팀원들에게 힘이 됩니다.
               </p>
             </div>
