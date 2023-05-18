@@ -133,6 +133,12 @@
     /* } */ 
 
     /* 아래는 방명록 CSS 입니다. */
+       .comment_card_bottom {
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .card-container {
       display: flex;
@@ -152,7 +158,7 @@
     }
 
     .comment_btn {
-      width: 100%;
+      width: 95%;
     }
 
     .table-body {
@@ -164,6 +170,35 @@
 
     .table_name {
       width: 120px;
+      text-align: center;
+    }
+  
+  
+    .table_comment {
+      text-align: center;
+    }
+
+    #name1, #name2, #name3, #name4 {
+      max-width: 100px;
+    }
+
+    #comment1, #comment2, #comment3, #comment4 {
+      min-width: 100px;
+    }
+
+    .write_name, .write_comment {
+      width: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .write_box {
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
   </style>
   <script>
@@ -363,10 +398,9 @@
     // 아래는 방명록 스크립트 입니다 //
 
     $(document).ready(function () {
-      show_writing('table_id1');
-      show_writing('table_id2');
-      show_writing('table_id3');
-      show_writing('table_id4');
+      ['table_id1', 'table_id2', 'table_id3', 'table_id4'].forEach(function (id) {
+        show_writing(id);
+      });
     });
 
     function show_writing(table_id) {
@@ -389,6 +423,11 @@
     function save_writing(name_id, comment_id, table_id) {
       let name = $("#" + name_id).val();
       let comment = $("#" + comment_id).val();
+      
+      if (!name.trim() || !comment.trim()) {
+        alert('이름 또는 내용 칸에 공백이 존재합니다.');
+        return; // Exit the function early
+      }
       let formData = new FormData()
       formData.append("name_give", name)
       formData.append("comment_give", comment)
@@ -411,7 +450,7 @@
 <body>
   <div class="title">
     <h1 class="title-color">
-      TEAM BARCODE
+      TEAM BARCODE!!
     </h1>
   </div>
 
@@ -450,20 +489,22 @@
           </table>
         </div>
         <hr class="card-divider">
-        <div class="input-group mb-3">
-          <span class="input-group-text">이름</span>
+        <div class="input-group mb-3 write_box">
+          <span class="input-group-text write_name">이름</span>
           <input id="name1" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">내용</span>
+        <!-- </div>
+        <div class="input-group mb-3"> -->
+          <span class="input-group-text write_comment">내용</span>
           <input id="comment1" type="text" class="form-control" />
         </div>
+        <div class="comment_card_bottom">
         <button onclick="save_writing('name1', 'comment1', 'table_id1')" type="button"
           class="btn btn-warning comment_btn">
           작성
         </button>
       </div>
   </div>
+</div>
   <div class="container">
     <div class="card2">
       <div class="row g-0">
@@ -498,12 +539,12 @@
           </table>
         </div>
         <hr class="card-divider">
-        <div class="input-group mb-3">
-          <span class="input-group-text">이름</span>
-          <input id="name2" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">내용</span>
+        <div class="input-group mb-3 write_box">
+          <span class="input-group-text write_name">이름</span>
+          <input id="name1" type="text" class="form-control" />
+        <!-- </div>
+        <div class="input-group mb-3"> -->
+          <span class="input-group-text write_comment">내용</span>
           <input id="comment2" type="text" class="form-control" />
         </div>
         <button onclick="save_writing('name2', 'comment2', 'table_id2')" type="button"
@@ -546,20 +587,22 @@
           </table>
         </div>
         <hr class="card-divider">
-        <div class="input-group mb-3">
-          <span class="input-group-text">이름</span>
-          <input id="name3" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">내용</span>
+        <div class="input-group mb-3 write_box">
+          <span class="input-group-text write_name">이름</span>
+          <input id="name1" type="text" class="form-control" />
+        <!-- </div>
+        <div class="input-group mb-3"> -->
+          <span class="input-group-text write_comment">내용</span>
           <input id="comment3" type="text" class="form-control" />
         </div>
+        <div class="comment_card_bottom">
         <button onclick="save_writing('name3', 'comment3', 'table_id3')" type="button"
           class="btn btn-warning comment_btn">
           작성
         </button>
       </div>
   </div>
+</div>
   <div class="container">
     <div class="card2">
       <div class="row g-0">
@@ -595,11 +638,12 @@
           </table>
         </div>
         <hr class="card-divider">
-        <div class="input-group mb-3">
-          <span class="input-group-text">이름</span>
-          <input id="name4" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 write_box">
+          <span class="input-group-text write_name">이름</span>
+          <input id="name1" type="text" class="form-control" />
+        <!-- </div>
+        <div class="input-group mb-3"> -->
+          <span class="input-group-text write_comment">내용</span>
           <span class="input-group-text">내용</span>
           <input id="comment4" type="text" class="form-control" />
         </div>
